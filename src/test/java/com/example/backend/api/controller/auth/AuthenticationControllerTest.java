@@ -19,8 +19,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-// MockMvc is a class provided by Spring MVC Test framework that allows you to perform unit testing for Spring MVC controllers
-// without starting a full HTTP server. It provides a way to simulate HTTP requests and verify the responses in a controlled environment.
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -34,9 +32,6 @@ public class AuthenticationControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    // spring provides transaction management, which uses annotation to handle these issues. In such a scenario,
-    // spring stores the user information in temporary memory and then checks for payment information if the payment is successful
-    // then it will complete the transaction otherwise it will roll back the transaction and the user information does not gets stored in the database.
     @Test
     @Transactional
     public void testRegister() throws Exception {

@@ -30,7 +30,6 @@ public class JWTRequestFilter extends OncePerRequestFilter {
         this.localUserDAO = localUserDAO;
     }
 
-    // When a request goes through the filter chain, we might want some of the authentication actions to happen only once for the request.
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String tokenHeader =  request.getHeader("Authorization");

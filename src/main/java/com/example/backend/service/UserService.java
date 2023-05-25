@@ -16,10 +16,6 @@ import java.sql.Timestamp;
 import java.util.List;
 import java.util.Optional;
 
-
-// In this example, the UserService class is marked with the @Service annotation, indicating that it is a service component.
-// A service component is a class that performs a specific business operation, such as processing data,
-// communicating with external systems, or implementing a specific algorithm.
 @Service
 public class UserService {
 
@@ -69,8 +65,6 @@ public class UserService {
     }
 
     public String loginUser(LoginBody loginBody) throws UserNotVerifiedException, EmailFailedException {
-        // This line of code retrieves an optional LocalUser object from the database using the username provided in the login request.
-        // In Java, an Optional is a container object that may or may not contain a non-null value.
         Optional<LocalUser> opUser = localUserDAO.findByUsernameIgnoreCase(loginBody.getUsername());
         if (opUser.isPresent()){
             LocalUser user = opUser.get();

@@ -11,9 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
-// JWT stands for JSON Web Token, which is a compact, URL-safe means of representing claims to be transferred
-// between two parties. It is an open standard that defines a way for securely transmitting information between
-// parties as a JSON object. JWTs are commonly used for authentication and authorization purposes in web applications.
 @Service
 public class JWTService {
 
