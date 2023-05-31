@@ -18,7 +18,6 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
 
-        // TODO: Overall, disabling CSRF and CORS should be done cautiously, and it is important to consider the security implications for your specific application
         http.csrf().disable().cors().disable();
         http.addFilterBefore(jwtRequestFilter, BasicAuthenticationFilter.class);
         http.authorizeHttpRequests()
