@@ -14,36 +14,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
-// The @RestController annotation provides hints for people reading the code and for Spring that the class plays a specific role.
-// In this case, our class is a web @Controller, so Spring considers it when handling incoming web requests.
-// -----------------------------------------------------------------------------------------------------------------
-// The @RequestMapping annotation provides “routing” information. It tells Spring that any HTTP request with the / path should be mapped to
-// the home method. The @RestController annotation tells Spring to render the resulting string directly back to the caller.
+@CrossOrigin(origins = "http://localhost:4200/")
 @RestController
 @RequestMapping("/auth")
 public class AuthenticationController {
 
     private UserService userService;
 
-    // this refers to the current object in a method or constructor. The most common use of this keyword is to
-    // eliminate the confusion between class attributes and parameters with the same name
-    // (because a class attribute is shadowed by a method or constructor parameter)
     public AuthenticationController(UserService userService) {
         this.userService = userService;
     }
-
-    // RegistrationBody registrationBody declares a variable named registrationBody with the type RegistrationBody.
-    // This variable declaration is used to create a new instance of the RegistrationBody class,
-    // which can be used to store and manipulate registration details for a user.
-    // -----------------------------------------------------------------------------------------------------------------
-    // @RequestBody annotation maps the HttpRequest body to a transfer or domain object,
-    // enabling automatic deserialization of the inbound HttpRequest body onto a Java object.
-    // -----------------------------------------------------------------------------------------------------------------
-    // @Valid is a Spring Boot annotation used to validate input data in a REST API. It is often used in conjunction with @RequestBody,
-    // which is used to map HTTP request data to a Java object.
-    // the validation framework checks the annotated constraints on the fields of the input object,
-    // and if any of the constraints are violated, it will throw a MethodArgumentNotValidException exception.
-    // In this case, we check whether the user has provided a correct password, such as 'email@.com' rather than just 'email'
 
     @PostMapping("/register")
     public ResponseEntity registerUser (@Valid @RequestBody RegistrationBody registrationBody) {
